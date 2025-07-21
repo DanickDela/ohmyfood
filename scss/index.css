@@ -131,7 +131,7 @@ body {
   background: linear-gradient(-161deg, #9356DC 0%, #FF79DA 100%);
   cursor: pointer;
   border-radius: 25px;
-  transition: background-color 300ms;
+  transition: background-color 300ms ease;
 }
 @media (min-width: 1024px) {
   .reservation__button {
