@@ -109,18 +109,29 @@ body {
   color: #353535;
   margin: 0px;
 }
+.reservation a {
+  text-decoration: none;
+}
 .reservation__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 218px;
   height: 50px;
-  border-radius: 25px;
   margin-top: 39px;
   margin-bottom: 57px;
   padding: 0px;
   border: 1px solid transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
   background: linear-gradient(-161deg, #9356DC 0%, #FF79DA 100%);
-  transition-property: transform;
-  transition-duration: 5000ms;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 300ms;
 }
 @media (min-width: 1024px) {
   .reservation__button {
@@ -131,17 +142,6 @@ body {
 .reservation__button:hover {
   filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.35));
   background: linear-gradient(174deg, #FF79DA 100%, #9356DC 0%);
-}
-.reservation__button-label {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-  vertical-align: center;
-  text-align: center;
-}
-.reservation__button a {
-  text-decoration: none;
 }
 
 .fonctionnement {
@@ -330,6 +330,7 @@ body {
   left: 293px;
   font-size: 21px;
   /* Quand le checkbox est coché, on inverse les opacités */
+  /* combinaison d'adjacence*/
 }
 .restaurants .restaurants__cards .card .card__like--toggle {
   display: none;
@@ -346,6 +347,7 @@ body {
   opacity: 0;
   background: linear-gradient(180deg, #9356DC 0%, #FF79DA 100%);
   -webkit-background-clip: text;
+          background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }

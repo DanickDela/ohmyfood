@@ -107,38 +107,36 @@ body {
         }      
     }
     
+    a {
+        text-decoration: none;
+    }
     &__button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         width: 218px;
         height: 50px;
-        border-radius: 25px;
         margin-top: 39px;
         margin-bottom: 57px;
         padding:0px;
+        border: 1px solid transparent;
+        @include font-roboto (16px, $medium,white);
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+        background: linear-gradient(-161deg, $main-color 0%, $second-color 100%);
         @media (min-width: 1024px) {
             margin: 0;
             padding:0;
-        }       
-        border: 1px solid transparent;
-        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
-        background: linear-gradient(-161deg, $main-color 0%, $second-color 100%);
-        transition-property: transform;
-        transition-duration: 5000ms;
-        &:hover {
+        } 
+        cursor: pointer;
+        border-radius: 25px;
+        transition: background-color 300ms;
+        &:hover {        
             filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.35));
             background: linear-gradient(174deg, $second-color 100%,$main-color 0%);
-            //background-color: black 90%; // blanc à 15% d’opacité
-        }
-        
-
-        &-label {
-            @include font-roboto (16px, $medium,white);
-            vertical-align: center;
-            text-align: center;
 
         }
-        a {
-            text-decoration: none;
-        }
+    
     }
 }
 
@@ -229,15 +227,14 @@ body {
         gap:18px;
     }
     
-
     .restaurants__title {
         @include font-roboto (24px, bold, black);
         &-principal {
             margin:0px;
             vertical-align: top;
-        }
-    
+        } 
     }
+
     .restaurants__cards {
         display: grid;
         grid-template-columns: 1fr;
@@ -245,7 +242,6 @@ body {
         @media (min-width: 1024px) {
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-
         }
         .card {
             display: flex;
@@ -278,7 +274,6 @@ body {
                     top: 13px;     
                     right: 7px;     
                     padding: 5px 10px;
-
                     font-weight: bold;
                     background-color: #99E2D0;
                     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
@@ -325,7 +320,7 @@ body {
                 .fa-solid {
                     opacity: 0;
                     background: linear-gradient(180deg, $main-color 0%,$second-color 100%);
-                    -webkit-background-clip: text;
+                    background-clip: text;
                     -webkit-text-fill-color: transparent;
                     color: transparent;
                 }
@@ -337,6 +332,7 @@ body {
                 }
 
                 /* Quand le checkbox est coché, on inverse les opacités */
+                /* combinaison d'adjacence*/
                 .card__like--toggle:checked + .card__like--icon .fa-regular {
                     opacity: 0;
                 }
