@@ -1,0 +1,404 @@
+/****** General ***********/
+
+$main-color:#9356DC;
+$second-color:#FF79DA;
+$tierce-color:#99E2D0;
+$grey-texte-fond:#353535;
+
+/*font variables */
+
+$light:300;
+$regular:400;
+$medium:500;
+
+@mixin font-roboto ($size, $weight:400, $color:black)
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+ 
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 0;
+    box-sizing: border-box; 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 63px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;;
+    .header__icon-return {
+        display:none;
+    }
+}
+
+  .localisation {
+        background-color: #EAEAEA;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:17px;
+        align-items: center;
+        height: 50px;
+        @include font-roboto (16px, $medium,$grey-texte-fond);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+/* Début Réservation ***********/
+
+.reservation {
+    background-color:#F6F6F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 39px;
+    @media (min-width: 1024px) {
+        gap: 18px;
+        padding: 30px 180px;
+    }
+    &__title { 
+        display: flex;
+        text-align: center;
+        justify-content: center; 
+        height: 68px;
+        padding-left: 42px;
+        padding-right: 58px;
+        @media (min-width: 1024px) {
+                @include font-roboto (40px, bold,black);
+                height: 47px; 
+                align-items: center;
+            }        
+          
+        &-h1 {
+            @include font-roboto (24px, bold,black);
+            margin: 0px;
+            @media (min-width: 1024px) {
+                @include font-roboto (40px, bold,black);
+            }    
+        }   
+    }
+    &__decouverte { 
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        height: 46px; 
+         padding-left: 34px;
+        padding-right: 26px;
+        @media (min-width: 1024px) {
+                align-items: center;
+        }        
+        &-p {
+            @include font-roboto (18px, $light,$grey-texte-fond);
+            margin:0px;
+        }      
+    }
+    
+    &__button {
+        width: 218px;
+        height: 50px;
+        border-radius: 25px;
+        margin-top: 39px;
+        margin-bottom: 57px;
+        padding:0px;
+        @media (min-width: 1024px) {
+            margin: 0;
+            padding:0;
+        }       
+        border: 1px solid transparent;
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+        background: linear-gradient(-161deg, $main-color 0%, $second-color 100%);
+        transition-property: transform;
+        transition-duration: 5000ms;
+        &:hover {
+            filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.35));
+            background: linear-gradient(174deg, $second-color 100%,$main-color 0%);
+            //background-color: black 90%; // blanc à 15% d’opacité
+        }
+        
+
+        &-label {
+            @include font-roboto (16px, $medium,white);
+            vertical-align: center;
+            text-align: center;
+
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.fonctionnement {
+    display: flex;
+    flex-direction: column;
+    gap :25px;
+    align-items:stretch;
+    margin: 58px 20px; 
+    @media (min-width: 1024px) {
+        margin: 50px 180px;
+    }
+    &__title {
+        height: 31px;
+        @include font-roboto (24px, bold , black);
+        vertical-align: top;
+        margin:0px;
+    }
+
+/* Début fonctionnement ********/
+    &__choices {
+        display: flex;
+        flex-direction: column;
+        align-items:stretch;
+        gap:25px;
+        margin:0px;
+        padding: 0px;
+    
+        @media (min-width: 1024px) {
+            flex-direction: row;
+        }
+        .fonctionnement__liste {
+                list-style: none;
+        }
+    
+        .fonctionnement__button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            width:calc(100% - 12px);
+            gap: 23px;
+            padding: 0px;
+            margin-left: 12px;
+            border-radius: 20px;
+            height: 72.38px;
+            border:none;
+            list-style: none;
+            background-color: #F6F6F6;
+            filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
+    
+            .fonctionnement__number {
+                @include font-roboto (14.18px, $medium, white);
+                list-style: none;
+                background-color: $main-color;
+                border-radius: 50%;
+
+                /*dimension du cercle */
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                margin-left :-12px;
+
+            }
+            .fonctionnement__icon {
+                font-size: 20px;
+                &--color {
+                    color: $main-color;
+                }
+            }
+            
+            .fonctionnement__label {
+                @include font-roboto (16px, $medium, black);
+            }
+    }   }
+}
+
+/* Début restaurants ***********/
+.restaurants {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    background-color: #F6F6F6;
+    box-sizing: border-box; 
+    padding: 60px 17px;
+    @media (min-width: 1024px) {
+        padding: 30px 180px;
+        gap:18px;
+    }
+    
+
+    .restaurants__title {
+        @include font-roboto (24px, bold, black);
+        &-principal {
+            margin:0px;
+            vertical-align: top;
+        }
+    
+    }
+    .restaurants__cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:18px;
+        @media (min-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 15px;
+            position:relative;
+            filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+
+            &--link {
+                    text-decoration: none;
+            }
+
+            &__container {
+                position:relative;
+                display: inline-block;
+                font-size :0px;
+                width: 100%;
+                .card__image {
+                    width: 100%;
+                    height: 174px;
+                    object-fit: cover;
+                    border-top-left-radius: 15px; 
+                    border-top-right-radius: 15px
+                }
+                .card__badge {
+                    position: absolute;
+                    @include font-roboto (14px, $light,#008766);
+                    border-radius: 2px;
+                    top: 13px;     
+                    right: 7px;     
+                    padding: 5px 10px;
+
+                    font-weight: bold;
+                    background-color: #99E2D0;
+                    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+                }       
+            }
+            
+            &__txt {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                width: 100%;
+                margin-left: 13px;
+                margin-right: 26px;
+                .card__title {
+                    @include font-roboto (18px, bold,black);
+                    margin-top: 15px;
+                    margin-bottom: 0px;
+                }
+
+                .card__subtitle {
+                    @include font-roboto (17px, $light,black);
+                    margin-top : 5px;
+                    margin-bottom: 12px;
+                }
+            }
+
+            .card__like {
+                position :absolute;
+                top:197px;
+                left: 293px;
+                font-size: 21px;
+                &--toggle {
+                    display:none;
+                }
+                &--icon i {
+                    font-size: 24px;
+                    cursor: pointer;
+                    transition: opacity 0.3s ease;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                .fa-solid {
+                    opacity: 0;
+                    background: linear-gradient(180deg, $main-color 0%,$second-color 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    color: transparent;
+                }
+
+                .fa-regular {
+                    opacity: 1;
+                    color:black;
+
+                }
+
+                /* Quand le checkbox est coché, on inverse les opacités */
+                .card__like--toggle:checked + .card__like--icon .fa-regular {
+                    opacity: 0;
+                }
+
+                .card__like--toggle:checked + .card__like--icon .fa-solid {
+                    opacity: 1;
+                }
+            }
+        }
+     }
+}
+
+    /* Début footer */
+    
+.footer {
+    display: flex;
+    flex-direction:column;
+    align-items: start;
+    gap : 16px;
+    background-color: $grey-texte-fond;
+    padding: 22px 15px 22px 25px;
+    &__logo {
+            height: 27px;
+            width: 139px;
+        }
+    @media (min-width: 1024px) {
+        flex-direction: row-reverse;
+        padding: 30px 25px 30px 25px;
+        align-items: center;  
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap:7px;
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            margin-right: 118px;
+        }
+        &__link {
+            text-decoration: none;
+            &--repas {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap:14px;
+            }
+            &--partenaire {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap:10px;
+            }
+            
+            @media (min-width: 1024px) {
+                margin-right: 25px;
+            }
+            @include font-roboto (16px, $medium,white);
+           
+        }
+        &__link  > i {
+            font-size: 13px;
+        }
+    }
+}

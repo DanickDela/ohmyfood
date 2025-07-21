@@ -1,0 +1,103 @@
+/****** General ***********/
+/*font variables */
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 42px;
+  width: 100%;
+  height: 63px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  margin-left: 17px;
+}
+.header__icon-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  color: #353535;
+}
+
+.restau {
+  display: inline-block;
+  width: 100%;
+}
+.restau__image {
+  display: inline-block;
+  width: 100%;
+  height: 174px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  background-color: #353535;
+  padding: 22px 15px 22px 25px;
+}
+.footer__logo {
+  height: 27px;
+  width: 139px;
+}
+@media (min-width: 1024px) {
+  .footer {
+    flex-direction: row-reverse;
+    padding: 30px 25px 30px 25px;
+    align-items: center;
+  }
+}
+.footer .navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+@media (min-width: 1024px) {
+  .footer .navbar {
+    flex-direction: row;
+    margin-right: 118px;
+  }
+}
+.footer .navbar__link {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+.footer .navbar__link--repas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+.footer .navbar__link--partenaire {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  .footer .navbar__link {
+    margin-right: 25px;
+  }
+}
+.footer .navbar__link > i {
+  font-size: 13px;
+}/*# sourceMappingURL=restaurants.css.map */
