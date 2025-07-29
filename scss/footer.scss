@@ -1,0 +1,85 @@
+
+/* pied de page pour tout le site */
+
+@use 'variables';
+@use 'mixins';
+@use 'keyframes';
+ 
+
+
+.footer {
+    display: flex;
+    flex-direction:column;
+    align-items: start;
+    gap : 16px;
+    background-color: variables.$grey-texte-fond;
+
+    padding: 22px 25px;
+    @media (min-width: 1024px) {
+        padding: 30px 25px;
+        flex-direction: row-reverse;
+        justify-content: end;
+    }
+
+    &--logo {
+        line-height: 100%;
+        @include mixins.font-shrik (18px, 400, white);
+        @media (min-width: 1024px) {
+            padding-top: 32px;
+            width: 139px;
+        }
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap:7px;
+        
+
+        @media (min-width: 1024px) {
+            display: grid;
+            grid-template-columns: 190px 190px 130px 130px;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 33px;
+            white-space: nowrap;
+        }
+      
+        &__link {
+    
+            text-decoration: none;
+            &--repas {
+                @include mixins.font-roboto (16px, variables.$medium,white);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height:19px;
+                gap:14px;
+            }
+            &--partenaire {
+                 @include mixins.font-roboto (16px, variables.$medium,white);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height:19px;
+                gap:10px;
+
+            }
+            &--mentions {
+                @include mixins.font-roboto (16px, variables.$medium,white);
+                line-height: 20px;
+
+            }
+                
+            &--contact {
+                @include mixins.font-roboto (16px, variables.$medium,white);    
+                line-height: 20px;
+  
+            }
+
+        }
+        &__link  > i {
+            font-size: 13px;
+        }
+    }
+}

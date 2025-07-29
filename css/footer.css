@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/* pied de page pour tout le site */
+/*color varibles*/
+/*font variables */
+/*carte décalage lors d'un clic ou d'un hover */
+/*Mixins*/
+@keyframes menu-entree {
+  0% {
+    opacity: 0;
+    transform: translateY(-9999px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* Apparition du site après le loader */
+@keyframes showSite {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  background-color: #353535;
+  padding: 22px 25px;
+}
+@media (min-width: 1024px) {
+  .footer {
+    padding: 30px 25px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+}
+.footer--logo {
+  line-height: 100%;
+  font-family: "Shrikhand";
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+}
+@media (min-width: 1024px) {
+  .footer--logo {
+    padding-top: 32px;
+    width: 139px;
+  }
+}
+.footer .navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+@media (min-width: 1024px) {
+  .footer .navbar {
+    display: grid;
+    grid-template-columns: 190px 190px 130px 130px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 33px;
+    white-space: nowrap;
+  }
+}
+.footer .navbar__link {
+  text-decoration: none;
+}
+.footer .navbar__link--repas {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 19px;
+  gap: 14px;
+}
+.footer .navbar__link--partenaire {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 19px;
+  gap: 10px;
+}
+.footer .navbar__link--mentions {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  line-height: 20px;
+}
+.footer .navbar__link--contact {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  line-height: 20px;
+}
+.footer .navbar__link > i {
+  font-size: 13px;
+}

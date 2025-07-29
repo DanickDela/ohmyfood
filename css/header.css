@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*color varibles*/
+/*font variables */
+/*carte décalage lors d'un clic ou d'un hover */
+/*Mixins*/
+@keyframes menu-entree {
+  0% {
+    opacity: 0;
+    transform: translateY(-9999px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* Apparition du site après le loader */
+@keyframes showSite {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  height: 63px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+@media (min-width: 1024px) {
+  .header {
+    height: 96px;
+    box-shadow: none;
+  }
+}
+.header span {
+  font-family: "Shrikhand";
+  font-size: 30px;
+  font-weight: 400;
+  color: black;
+  margin-top: 14px;
+  line-height: 44px;
+}
+@media (min-width: 1024px) {
+  .header span {
+    display: none;
+  }
+}
+.header__logo {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .header__logo {
+    display: block;
+    padding-top: 30px;
+    width: 200px;
+    height: 34px;
+  }
+}
+.header__icon-link {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 17px;
+  left: 17px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .header__icon-link {
+    top: 33px;
+  }
+}
+.header__icon-return {
+  font-size: 16px;
+  color: #353535;
+}

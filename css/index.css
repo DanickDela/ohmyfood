@@ -1,32 +1,87 @@
 @charset "UTF-8";
-/****** General ***********/
+/*color varibles*/
 /*font variables */
+/*carte décalage lors d'un clic ou d'un hover */
+/*Mixins*/
+@keyframes menu-entree {
+  0% {
+    opacity: 0;
+    transform: translateY(-9999px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* Apparition du site après le loader */
+@keyframes showSite {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   margin: 0;
-  box-sizing: border-box;
   padding-left: 0px;
   padding-right: 0px;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.main-container {
   width: 100%;
-  height: 63px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: white;
+  max-width: 1440px;
+  padding: 0 0px;
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 200vh;
 }
+
 .header .header__icon-return {
   display: none;
 }
 
+/* localisation de la ville */
 .localisation {
   background-color: #EAEAEA;
   display: flex;
@@ -35,11 +90,18 @@ body {
   gap: 17px;
   align-items: center;
   height: 50px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
   color: #353535;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4px;
+}
+@media (min-width: 1024px) {
+  .localisation {
+    box-shadow: none;
+    margin-bottom: 0px;
+  }
 }
 
 /* Début Réservation ***********/
@@ -49,6 +111,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 39px;
+  padding-bottom: 57px;
 }
 @media (min-width: 1024px) {
   .reservation {
@@ -66,7 +129,7 @@ body {
 }
 @media (min-width: 1024px) {
   .reservation__title {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-size: 40px;
     font-weight: bold;
     color: black;
@@ -75,7 +138,7 @@ body {
   }
 }
 .reservation__title-h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 24px;
   font-weight: bold;
   color: black;
@@ -83,7 +146,7 @@ body {
 }
 @media (min-width: 1024px) {
   .reservation__title-h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-size: 40px;
     font-weight: bold;
     color: black;
@@ -103,14 +166,11 @@ body {
   }
 }
 .reservation__decouverte-p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 300;
   color: #353535;
   margin: 0px;
-}
-.reservation a {
-  text-decoration: none;
 }
 .reservation__button {
   display: flex;
@@ -119,18 +179,16 @@ body {
   align-items: center;
   width: 218px;
   height: 50px;
-  margin-top: 39px;
-  margin-bottom: 57px;
+  margin-top: 27px;
   padding: 0px;
   border: 1px solid transparent;
-  font-family: "Roboto", sans-serif;
+  border-radius: 25px;
+  font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
   color: white;
-  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   background: linear-gradient(-161deg, #9356DC 0%, #FF79DA 100%);
-  cursor: pointer;
-  border-radius: 25px;
   transition: background-color 300ms ease;
 }
 @media (min-width: 1024px) {
@@ -140,17 +198,17 @@ body {
   }
 }
 .reservation__button:hover {
-  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.35));
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
   background: linear-gradient(174deg, #FF79DA 100%, #9356DC 0%);
 }
 
+/* Début fonctionnement */
 .fonctionnement {
   display: flex;
   flex-direction: column;
   gap: 25px;
   align-items: stretch;
   margin: 58px 20px;
-  /* Début fonctionnement ********/
 }
 @media (min-width: 1024px) {
   .fonctionnement {
@@ -159,7 +217,7 @@ body {
 }
 .fonctionnement__title {
   height: 31px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 24px;
   font-weight: bold;
   color: black;
@@ -177,10 +235,16 @@ body {
 @media (min-width: 1024px) {
   .fonctionnement__choices {
     flex-direction: row;
+    gap: 24px;
   }
 }
 .fonctionnement__choices .fonctionnement__liste {
   list-style: none;
+}
+@media (min-width: 1024px) {
+  .fonctionnement__choices .fonctionnement__liste {
+    width: 31%;
+  }
 }
 .fonctionnement__choices .fonctionnement__button {
   display: flex;
@@ -189,20 +253,29 @@ body {
   justify-content: flex-start;
   width: calc(100% - 12px);
   gap: 23px;
-  padding: 0px;
   margin-left: 12px;
   border-radius: 20px;
   height: 72.38px;
   border: none;
   list-style: none;
+  padding: 0px;
   background-color: #F6F6F6;
-  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+@media (min-width: 1024px) {
+  .fonctionnement__choices .fonctionnement__button {
+    flex-direction: row;
+    gap: 24px;
+  }
 }
 .fonctionnement__choices .fonctionnement__button .fonctionnement__number {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 14.18px;
   font-weight: 500;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   background-color: #9356DC;
   border-radius: 50%;
@@ -219,20 +292,20 @@ body {
   color: #9356DC;
 }
 .fonctionnement__choices .fonctionnement__button .fonctionnement__label {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
   color: black;
 }
 
-/* Début restaurants ***********/
+/********** Début restaurants ***********/
 .restaurants {
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
   background-color: #F6F6F6;
   box-sizing: border-box;
-  padding: 60px 17px;
+  padding: 54px 17px 66px 20px;
 }
 @media (min-width: 1024px) {
   .restaurants {
@@ -241,14 +314,20 @@ body {
   }
 }
 .restaurants .restaurants__title {
-  font-family: "Roboto", sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: black;
+  margin-bottom: 20px;
+}
+@media (min-width: 1024px) {
+  .restaurants .restaurants__title {
+    margin-bottom: 10px;
+  }
 }
 .restaurants .restaurants__title-principal {
   margin: 0px;
   vertical-align: top;
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
 }
 .restaurants .restaurants__cards {
   display: grid;
@@ -258,7 +337,9 @@ body {
 @media (min-width: 1024px) {
   .restaurants .restaurants__cards {
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    row-gap: 50px;
+    -moz-column-gap: 100px;
+         column-gap: 100px;
   }
 }
 .restaurants .restaurants__cards .card {
@@ -267,7 +348,7 @@ body {
   background-color: white;
   border-radius: 15px;
   position: relative;
-  filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 }
 .restaurants .restaurants__cards .card--link {
   text-decoration: none;
@@ -288,7 +369,7 @@ body {
 }
 .restaurants .restaurants__cards .card__container .card__badge {
   position: absolute;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 14px;
   font-weight: 300;
   color: #008766;
@@ -298,7 +379,7 @@ body {
   padding: 5px 10px;
   font-weight: bold;
   background-color: #99E2D0;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 .restaurants .restaurants__cards .card__txt {
   display: flex;
@@ -308,8 +389,13 @@ body {
   margin-left: 13px;
   margin-right: 26px;
 }
+@media (min-width: 1024px) {
+  .restaurants .restaurants__cards .card__txt {
+    margin-left: 18.74px;
+  }
+}
 .restaurants .restaurants__cards .card__txt .card__title {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: bold;
   color: black;
@@ -317,7 +403,7 @@ body {
   margin-bottom: 0px;
 }
 .restaurants .restaurants__cards .card__txt .card__subtitle {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   font-size: 17px;
   font-weight: 300;
   color: black;
@@ -327,7 +413,7 @@ body {
 .restaurants .restaurants__cards .card .card__like {
   position: absolute;
   top: 197px;
-  left: 293px;
+  right: 54px;
   font-size: 21px;
   /* Quand le checkbox est coché, on inverse les opacités */
   /* combinaison d'adjacence*/
@@ -348,8 +434,8 @@ body {
   background: linear-gradient(180deg, #9356DC 0%, #FF79DA 100%);
   -webkit-background-clip: text;
           background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .restaurants .restaurants__cards .card .card__like .fa-regular {
   opacity: 1;
@@ -361,62 +447,3 @@ body {
 .restaurants .restaurants__cards .card .card__like .card__like--toggle:checked + .card__like--icon .fa-solid {
   opacity: 1;
 }
-
-/* Début footer */
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 16px;
-  background-color: #353535;
-  padding: 22px 15px 22px 25px;
-}
-.footer__logo {
-  height: 27px;
-  width: 139px;
-}
-@media (min-width: 1024px) {
-  .footer {
-    flex-direction: row-reverse;
-    padding: 30px 25px 30px 25px;
-    align-items: center;
-  }
-}
-.footer .navbar {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-@media (min-width: 1024px) {
-  .footer .navbar {
-    flex-direction: row;
-    margin-right: 118px;
-  }
-}
-.footer .navbar__link {
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-}
-.footer .navbar__link--repas {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-}
-.footer .navbar__link--partenaire {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-@media (min-width: 1024px) {
-  .footer .navbar__link {
-    margin-right: 25px;
-  }
-}
-.footer .navbar__link > i {
-  font-size: 13px;
-}/*# sourceMappingURL=index.css.map */
