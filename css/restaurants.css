@@ -188,16 +188,16 @@ body {
   gap: 12px;
   padding: 0px;
   margin: 0px;
-  animation: menu-entree 2s linear backwards;
+  animation: menu-entree 1.2s linear backwards;
 }
 .restau__carte:nth-child(2) {
-  animation-delay: 600ms;
+  animation-delay: 800ms;
 }
 .restau__carte:nth-child(3) {
-  animation-delay: 900ms;
+  animation-delay: 1200ms;
 }
 .restau__carte:nth-child(4) {
-  animation-delay: 1200ms;
+  animation-delay: 1600ms;
 }
 .restau__carte-title h2 {
   font-family: "Roboto";
@@ -271,7 +271,7 @@ body {
 .carte__plat input[type=checkbox] {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .toggle-plat:checked ~ .carte__plat-select {
     transform: translateX(0);
   }
@@ -296,10 +296,6 @@ body {
   }
   .carte__plat:hover .carte__plat-description b {
     width: calc(100% - 59px);
-  }
-  .carte__plat:hover {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
   }
 }
 .carte__plat-description {

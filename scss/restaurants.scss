@@ -126,11 +126,11 @@ body {
         padding:0px;
         margin:0px;
 
-        animation: menu-entree 2s linear backwards;
+        animation: menu-entree 2s 0s linear backwards;
 
         @for $i from 2 through 4 {
             &:nth-child(#{$i}) {
-            animation-delay: #{($i) * 300}ms;
+            animation-delay: #{($i-2) * 300}ms;
         }
     }
 
@@ -205,7 +205,7 @@ body {
                         display: none;
             }
  
-        @media (max-width: variable.$smartphone) { 
+        @media (max-width: variables.$desktop) { 
 
              
                 .toggle-plat:checked ~ &-select {
@@ -242,11 +242,6 @@ body {
             &:hover &-description b {
                 width: calc(100% - variables.$carshift);
             }                
-                    
-            &:hover {
-                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
-            }
         }
 
         &-description {

@@ -9,6 +9,7 @@
     transform: translateY(-5%);
   }
   100% {
+    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -25,8 +26,8 @@
     opacity: 1;
     visibility: visible;
   }
-  90% {
-    opacity: 1;
+  10% {
+    opacity: 0.5;
     visibility: visible;
   }
   100% {
@@ -41,19 +42,5 @@
   }
   100% {
     visibility: visible;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  90% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
   }
 }

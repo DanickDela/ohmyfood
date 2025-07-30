@@ -9,10 +9,6 @@
     opacity: 0;
     transform: translateY(50%);
   }
-  80% {
-    opacity: 1;
-    transform: translateY(40%);
-  }
   100% {
     transform: translateY(0);
   }
@@ -30,8 +26,8 @@
     opacity: 1;
     visibility: visible;
   }
-  90% {
-    opacity: 1;
+  95% {
+    opacity: 0.1;
     visibility: visible;
   }
   100% {
@@ -48,20 +44,6 @@
     visibility: visible;
   }
 }
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  90% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
 /* Loader plein écran */
 .loader {
   position: fixed;
@@ -70,8 +52,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  z-index: 15;
   background-color: rgb(241.5, 233.875, 250.625);
-  animation: fadeOut 2s 0s forwards;
+  animation: fadeOut 2s 1.5s forwards;
 }
 
 .loader__text {
@@ -93,13 +76,6 @@
   left: 50%;
   font-size: 24px;
   color: #9356dc;
-  animation: orbit 1.5s linear infinite;
+  animation: orbit 2s 0s linear infinite;
   transform-origin: center center;
-}
-
-/* Masquer le contenu du site au début */
-/* Site masqué au départ */
-.main-container {
-  visibility: hidden;
-  animation: showSite 0s 2s forwards;
 }

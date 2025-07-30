@@ -9,10 +9,6 @@
     opacity: 0;
     transform: translateY(50%);
   }
-  80% {
-    opacity: 1;
-    transform: translateY(40%);
-  }
   100% {
     transform: translateY(0);
   }
@@ -30,8 +26,8 @@
     opacity: 1;
     visibility: visible;
   }
-  90% {
-    opacity: 1;
+  95% {
+    opacity: 0.1;
     visibility: visible;
   }
   100% {
@@ -48,20 +44,6 @@
     visibility: visible;
   }
 }
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  90% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
 .header {
   position: sticky;
   top: 0;
@@ -70,7 +52,7 @@
   height: 63px;
   display: flex;
   justify-content: center;
-  z-index: 10;
+  z-index: 2;
 }
 @media (min-width: 1024px) {
   .header {

@@ -12,8 +12,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    z-index: 15;
     background-color: lighten(variables.$main-color,35%);
-    animation: fadeOut 2s 0s forwards;
+    animation: fadeOut 2s 1.5s forwards;
     
 }
   
@@ -33,14 +34,6 @@
   left: 50%;
   font-size: 24px;
   color: #9356dc;
-  animation: orbit 1.5s linear infinite;
+  animation: orbit 2s 0s linear infinite;
   transform-origin: center center;
-}
-
-
-/* Masquer le contenu du site au début */
-/* Site masqué au départ */
-.main-container {
-    visibility: hidden;
-    animation: showSite 0s 2s forwards;
 }
