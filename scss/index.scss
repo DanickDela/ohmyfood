@@ -40,7 +40,7 @@ body {
     @include mixins.font-roboto (16px, variables.$medium,variables.$grey-texte-fond);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 4px;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         box-shadow: none;
         margin-bottom: 0px;
     } 
@@ -55,7 +55,7 @@ body {
     align-items: center;
     padding-top: 39px;
     padding-bottom:57px;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         gap: 18px;
         padding: 30px 180px;
     }
@@ -66,7 +66,7 @@ body {
         height: 68px;
         padding-left: 42px;
         padding-right: 58px;
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
                 @include mixins.font-roboto (40px, bold,black);
                 height: 47px; 
                 align-items: center;
@@ -74,7 +74,7 @@ body {
         &-h1 {
             @include mixins.font-roboto (24px, bold,black);
             margin: 0px;
-            @media (min-width: 1024px) {
+            @media (min-width: variables.$desktop) {
                 @include mixins.font-roboto (40px, bold,black);
             }    
         }   
@@ -86,7 +86,7 @@ body {
         height: 46px; 
         padding-left: 34px;
         padding-right: 26px;
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
                 align-items: center;
         }        
         &-p {
@@ -109,7 +109,7 @@ body {
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         background: linear-gradient(-161deg, variables.$main-color 0%, variables.$second-color 100%);
         transition: background-color 300ms ease;
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
             margin: 0;
             padding:0;
         } 
@@ -127,7 +127,7 @@ body {
     gap :25px;
     align-items:stretch;
     margin: 58px 20px; 
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         margin: 50px 180px;
     }
     &__title {
@@ -145,13 +145,13 @@ body {
         margin:0px;
         padding: 0px;
     
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
             flex-direction: row;
             gap:24px;
         }
         .fonctionnement__liste {
                 list-style: none;
-                @media (min-width: 1024px) {
+                @media (min-width: variables.$desktop) {
                     width:31%;
             }
         }
@@ -170,7 +170,7 @@ body {
             padding:0px;
             background-color: #F6F6F6;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-            @media (min-width: 1024px) {
+            @media (min-width: variables.$desktop) {
                 flex-direction: row;
                 gap:24px;
             }
@@ -210,14 +210,14 @@ body {
     background-color: #F6F6F6;
     box-sizing: border-box; 
     padding: 54px 17px 66px 20px;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         padding: 30px 180px;
         gap:18px;
     }
     
     .restaurants__title {
         margin-bottom :20px;
-         @media (min-width: 1024px) {
+         @media (min-width: variables.$desktop) {
             margin-bottom :10px;
         }
         &-principal {
@@ -231,7 +231,7 @@ body {
         display: grid;
         grid-template-columns: 1fr;
         gap:18px;
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
             grid-template-columns: 1fr 1fr;
             row-gap: 50px;
             column-gap: 100px
@@ -280,7 +280,7 @@ body {
                 width: 100%;
                 margin-left: 13px;
                 margin-right: 26px;
-                 @media (min-width: 1024px) {
+                 @media (min-width: variables.$desktop) {
                     margin-left: 18.74px;
                  }
                 .card__title {

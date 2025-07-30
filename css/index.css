@@ -2,14 +2,18 @@
 /*color varibles*/
 /*font variables */
 /*carte décalage lors d'un clic ou d'un hover */
+/* Taille de média*/
 /*Mixins*/
 @keyframes menu-entree {
   0% {
     opacity: 0;
-    transform: translateY(-9999px);
+    transform: translateY(50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(40%);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }

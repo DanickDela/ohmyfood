@@ -5,7 +5,6 @@
 
 /* Loader actif plein écran */
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -28,18 +27,17 @@ body {
     width: 100%;
     height: 275px;
     object-fit: cover;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         height: 383px;
     }
 }
-
 
 .restau--background {
     margin-top: -40.33px;
     position: relative;
     background-color: #F6F6F6;
     border-radius: 40px 40px 0px 0px;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
       max-width:1055px;
       margin-left: auto;
       margin-right: auto;
@@ -51,7 +49,7 @@ body {
     display:flex;
     flex-direction: column;
     gap: 40px;
-    @media (min-width: 1024px) {
+    @media (min-width: variables.$desktop) {
         padding: 61.30px 210px 0px 210px;
     }
 
@@ -61,7 +59,7 @@ body {
         flex-direction:row;
         justify-content: start;
         position: relative;
-        @media (min-width: 1024px) {
+        @media (min-width: variables.$desktop) {
           justify-content:center;
                gap: 45px;
         }
@@ -71,7 +69,7 @@ body {
             line-height: 100%;
             @include mixins.font-shrik (28px,bold,black);
             font-style: italic;
-            @media (min-width: 1024px) {
+            @media (min-width: variables.$desktop) {
                margin-bottom: 5px;
             }
         }
@@ -89,7 +87,7 @@ body {
                         position: absolute;
                         left: 312px;
                         top:3px;
-                        @media (min-width: 1024px) {                                              
+                        @media (min-width: variables.$desktop) {                                              
                           left: 448px;
                         }
                       }
@@ -108,10 +106,10 @@ body {
                     }
                 
                 }
-
-                /* Quand le checkbox est coché, on inverse les opacités */
-                /* combinaison d'adjacence*/
+                
                 &--toggle:checked + &--icon .fa-regular {
+                    /* Quand le checkbox est coché, on inverse les opacités */
+                /* combinaison d'adjacence*/
                     opacity: 0;
                 }
 
@@ -127,7 +125,15 @@ body {
         gap:12px;
         padding:0px;
         margin:0px;
-   
+
+        animation: menu-entree 2s linear backwards;
+
+        @for $i from 2 through 4 {
+            &:nth-child(#{$i}) {
+            animation-delay: #{($i) * 300}ms;
+        }
+    }
+
         &-title {
             h2 {
                 @include mixins.font-roboto(16px,variables.$light,black);
@@ -169,7 +175,7 @@ body {
                 box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
                 background: linear-gradient(174deg, variables.$second-color 100%,variables.$main-color 0%);
             }
-            @media (min-width: 1024px) {
+            @media (min-width: variables.$desktop) {
                 margin: 0;
                 padding:0;
             } 
@@ -181,6 +187,8 @@ body {
     display:flex;
     flex-direction: column;
     gap:10px;
+              
+ 
     &__plat {
         position:relative;
         display: flex;
@@ -193,46 +201,51 @@ body {
         box-shadow: 0px 4px 15px rgba(0, 4.01, 15.04, 0.15);
         overflow: hidden;
         z-index:1;
- 
-           
         input[type='checkbox'] {
-                    display: none;
+                        display: none;
+            }
+ 
+        @media (max-width: variable.$smartphone) { 
+
+             
+                .toggle-plat:checked ~ &-select {
+                    transform: translateX(0);
+                }
+
+                .toggle-plat:checked ~ &-price {
+                transform: translateX(-1* variables.$carshift);
+                transition: transform 300ms ease;
+                }
+
+                .toggle-plat:checked ~ &-description b,
+                .toggle-plat:checked ~ &-description em {
+                width: calc(100% - variables.$carshift);
+                }
         }
-        .toggle-plat:checked ~ .carte__plat-select {
-            transform: translateX(0);
-        }
 
-        .toggle-plat:checked ~ .carte__plat-price {
-          transform: translateX(-variables.$carshift);
-          transition: transform 300ms ease;
-        }
+        @media (min-width: variables.$desktop) { 
 
-        .toggle-plat:checked ~ .carte__plat-description h3,
-        .toggle-plat:checked ~ .carte__plat-description p {
-          width: calc(100% - variables.$carshift);
-        }
+        
+            &:hover &-select{
+                    transform: translateX(0);
 
-        @media (min-width: 1024px) {                
-              &:hover &-select{
-                      transform: translateX(0);
+            }
+            &:hover &-price {
+                transform: translateX(-1*variables.$carshift);
+                transition: transform 300ms ease;
+            }
 
-              }
-              &:hover &-price {
-                  transform: translateX(-variables.$carshift);
-                  transition: transform 300ms ease;
-              }
+            &:hover &-description em {
+                width: calc(100% - variables.$carshift);
+            }
 
-              &:hover &-description p {
-                  width: calc(100% - -variables.$carshift);
-              }
-
-              &:hover &-description h3 {
-                  width: calc(100% - variables.$carshift);
-              }                
-                      
-              &:hover {
-                  border-top-right-radius: 20px;
-                  border-bottom-right-radius: 20px;
+            &:hover &-description b {
+                width: calc(100% - variables.$carshift);
+            }                
+                    
+            &:hover {
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
             }
         }
 
@@ -245,8 +258,9 @@ body {
             min-width: 0;
             overflow: hidden;
             
-            h3 {
+            b {
                 @include mixins.font-roboto(18px,variables.$medium,black);
+                font-style: normal;
                 margin:0px;
                 white-space: nowrap;          /* Ne pas aller à la ligne */
                 overflow: hidden;             /* Masquer le débordement */
@@ -254,8 +268,9 @@ body {
                 width: 100%;
             }
         
-            p {
+            em {
                 @include mixins.font-roboto(15.04px,variables.$light,black);
+                font-style: normal;
                 margin: 0px;
                 white-space: nowrap;  
                 overflow: hidden; 
@@ -264,8 +279,9 @@ body {
             }
         }
         
-        &-price p {
+        &-price em {
                     @include mixins.font-roboto(15.04px,bold,variables.$grey-texte-fond);
+                    font-style: normal;
                     white-space: nowrap;
                     display: flex;
                     align-items: end;
@@ -273,7 +289,7 @@ body {
                     margin: 0px;
                     margin-right:15px;
                   
-                    @media (min-width: 1024px) {
+                    @media (min-width: variables.$desktop) {
                       margin-right:0px;
                     }
         }
@@ -305,12 +321,3 @@ body {
     } 
  }
 
-.carte__plat {
-  animation: menu-entree 500ms ease-in-out both;
-}
-
-@for $i from 1 through 4 {
-  .carte__plat:nth-child(#{$i}) {
-    animation-delay: #{($i - 1) * 100}ms;
-  }
-}

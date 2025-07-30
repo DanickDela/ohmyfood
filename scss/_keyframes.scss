@@ -1,11 +1,15 @@
 @keyframes menu-entree {
   0% {
     opacity: 0;
-    transform: translateY(-9999px);
+    transform: translateY(50%);
 
   }
-  100% {
+   80% {
     opacity: 1;
+    transform: translateY(40%);
+  }
+
+  100% {
     transform: translateY(0);
   }
 }

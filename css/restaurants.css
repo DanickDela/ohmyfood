@@ -3,14 +3,18 @@
 /*color varibles*/
 /*font variables */
 /*carte décalage lors d'un clic ou d'un hover */
+/* Taille de média*/
 /*Mixins*/
 @keyframes menu-entree {
   0% {
     opacity: 0;
-    transform: translateY(-9999px);
+    transform: translateY(50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(40%);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -140,10 +144,6 @@ body {
     margin-bottom: 5px;
   }
 }
-.restau__title__like {
-  /* Quand le checkbox est coché, on inverse les opacités */
-  /* combinaison d'adjacence*/
-}
 .restau__title__like--toggle {
   display: none;
 }
@@ -175,6 +175,8 @@ body {
   color: black;
 }
 .restau__title__like--toggle:checked + .restau__title__like--icon .fa-regular {
+  /* Quand le checkbox est coché, on inverse les opacités */
+  /* combinaison d'adjacence*/
   opacity: 0;
 }
 .restau__title__like--toggle:checked + .restau__title__like--icon .fa-solid {
@@ -186,6 +188,16 @@ body {
   gap: 12px;
   padding: 0px;
   margin: 0px;
+  animation: menu-entree 2s linear backwards;
+}
+.restau__carte:nth-child(2) {
+  animation-delay: 600ms;
+}
+.restau__carte:nth-child(3) {
+  animation-delay: 900ms;
+}
+.restau__carte:nth-child(4) {
+  animation-delay: 1200ms;
 }
 .restau__carte-title h2 {
   font-family: "Roboto";
@@ -259,16 +271,17 @@ body {
 .carte__plat input[type=checkbox] {
   display: none;
 }
-.carte__plat .toggle-plat:checked ~ .carte__plat-select {
-  transform: translateX(0);
-}
-.carte__plat .toggle-plat:checked ~ .carte__plat-price {
-  transform: translateX(-59px);
-  transition: transform 300ms ease;
-}
-.carte__plat .toggle-plat:checked ~ .carte__plat-description h3,
-.carte__plat .toggle-plat:checked ~ .carte__plat-description p {
-  width: calc(100% - 59px);
+@media (max-width: 768px) {
+  .toggle-plat:checked ~ .carte__plat-select {
+    transform: translateX(0);
+  }
+  .toggle-plat:checked ~ .carte__plat-price {
+    transform: translateX(-59px);
+    transition: transform 300ms ease;
+  }
+  .toggle-plat:checked ~ .carte__plat-description b, .toggle-plat:checked ~ .carte__plat-description em {
+    width: calc(100% - 59px);
+  }
 }
 @media (min-width: 1024px) {
   .carte__plat:hover .carte__plat-select {
@@ -278,10 +291,10 @@ body {
     transform: translateX(-59px);
     transition: transform 300ms ease;
   }
-  .carte__plat:hover .carte__plat-description p {
+  .carte__plat:hover .carte__plat-description em {
     width: calc(100% - 59px);
   }
-  .carte__plat:hover .carte__plat-description h3 {
+  .carte__plat:hover .carte__plat-description b {
     width: calc(100% - 59px);
   }
   .carte__plat:hover {
@@ -298,33 +311,36 @@ body {
   min-width: 0;
   overflow: hidden;
 }
-.carte__plat-description h3 {
+.carte__plat-description b {
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 500;
   color: black;
+  font-style: normal;
   margin: 0px;
   white-space: nowrap; /* Ne pas aller à la ligne */
   overflow: hidden; /* Masquer le débordement */
   text-overflow: ellipsis; /* Afficher "…" à la fin */
   width: 100%;
 }
-.carte__plat-description p {
+.carte__plat-description em {
   font-family: "Roboto";
   font-size: 15.04px;
   font-weight: 300;
   color: black;
+  font-style: normal;
   margin: 0px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
 }
-.carte__plat-price p {
+.carte__plat-price em {
   font-family: "Roboto";
   font-size: 15.04px;
   font-weight: bold;
   color: #353535;
+  font-style: normal;
   white-space: nowrap;
   display: flex;
   align-items: end;
@@ -333,7 +349,7 @@ body {
   margin-right: 15px;
 }
 @media (min-width: 1024px) {
-  .carte__plat-price p {
+  .carte__plat-price em {
     margin-right: 0px;
   }
 }
@@ -358,24 +374,4 @@ body {
   color: #99E2D0;
   border-radius: 25px;
   background-color: white;
-}
-
-.carte__plat {
-  animation: menu-entree 500ms ease-in-out both;
-}
-
-.carte__plat:nth-child(1) {
-  animation-delay: 0ms;
-}
-
-.carte__plat:nth-child(2) {
-  animation-delay: 100ms;
-}
-
-.carte__plat:nth-child(3) {
-  animation-delay: 200ms;
-}
-
-.carte__plat:nth-child(4) {
-  animation-delay: 300ms;
 }
